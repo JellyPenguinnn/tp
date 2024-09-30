@@ -23,10 +23,13 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
 import seedu.address.testutil.PersonBuilder;
 
+/**
+ * Contains integration tests (interaction with the Model) and unit tests for RemarkCommand.
+ */
 public class RemarkCommandTest {
 
     private static final String REMARK_STUB = "Some remark";
-    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_addRemarkUnfilteredList_success() {
@@ -86,6 +89,7 @@ public class RemarkCommandTest {
     public void equals() {
         final RemarkCommand standardCommand = new RemarkCommand(INDEX_FIRST_PERSON,
                 new Remark(VALID_REMARK_AMY));
+
         // same values -> returns true
         RemarkCommand commandWithSameValues = new RemarkCommand(INDEX_FIRST_PERSON,
                 new Remark(VALID_REMARK_AMY));
@@ -103,6 +107,7 @@ public class RemarkCommandTest {
         // different index -> returns false
         assertFalse(standardCommand.equals(new RemarkCommand(INDEX_SECOND_PERSON,
                 new Remark(VALID_REMARK_AMY))));
+
         // different remark -> returns false
         assertFalse(standardCommand.equals(new RemarkCommand(INDEX_FIRST_PERSON,
                 new Remark(VALID_REMARK_BOB))));
