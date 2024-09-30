@@ -96,9 +96,6 @@ public class PersonBuilder {
 
     /**
      * Sets the {@code Remark} of the {@code Person} that we are building.
-     *
-     * @param remark The remark to set for the person.
-     * @return This {@code PersonBuilder} instance with the updated remark.
      */
     public PersonBuilder withRemark(String remark) {
         this.remark = new Remark(remark);
